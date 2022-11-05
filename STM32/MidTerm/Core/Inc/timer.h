@@ -8,13 +8,17 @@
 #ifndef INC_TIMER_H_
 #define INC_TIMER_H_
 #include "main.h"
-int timer0_counter = 0;
-int timer0_flag = 0;
+int timer0_counter = 0, timer1_counter=0;
+int timer0_flag = 0, timer1_flag=0;
 int TIMER_CYCLE = 10;
 
 void setTimer0(int duration) {
 	timer0_counter = duration / TIMER_CYCLE;
 	timer0_flag = 0;
+}
+void setTimer1(int duration) {
+	timer1_counter = duration / TIMER_CYCLE;
+	timer1_flag = 0;
 }
 void timer_run() {
 	if (timer0_counter > 0) {
@@ -23,7 +27,11 @@ void timer_run() {
 			timer0_flag = 1;
 		}
 	}
+	if (timer1_counter > 0) {
+		timer1_counter--;
+		if (timer1_counter == 0) {
+			timer1_flag = 1;
+		}
+	}
 }
-
-
 #endif /* INC_TIMER_H_ */

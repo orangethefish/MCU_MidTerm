@@ -14,6 +14,7 @@
 #define RESET			2
 #define INC				3
 #define DEC				4
-
+#define INC_LONG		5
+#define DEC_LONG		6
 int status=1;
 #endif /* INC_GLOBAL_H_ */
